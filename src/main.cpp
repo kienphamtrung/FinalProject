@@ -32,7 +32,6 @@ void setup() {
    setupRelay();
    ALLrelayState=OFF_ALL;
    controlALL();
-  //  setupMQTT1();
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   setupMQTT();
@@ -60,20 +59,12 @@ void setup() {
 }
 
 void loop() {
-  // M5.update();
-  // if(M5.BtnA.wasClicked()==true){
-  //   relayState=ON_RELAY_1;
-  //   switchChanel_3();
-  //   controlALL();
-  // }
-  // put your main code here, to run repeatedly:
+
     if (WiFi.status() == WL_CONNECTED)
   {
     checkWiFiStatus();
     checkConnectMQTT();
     clientLoop(); 
   }
-  // delay (100);
-  // io.run(); // gọi hàm Run.
-  // delay(1000);
+
 }
